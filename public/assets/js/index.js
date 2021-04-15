@@ -4,6 +4,7 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -24,6 +25,8 @@ const hide = (elem) => {
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
+
+console.log(activeNote);
 
 const getNotes = () =>
   fetch('/api/notes', {
@@ -51,6 +54,7 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
+  console.log(activeNote.id);
   hide(saveNoteBtn);
 
   if (activeNote.id) {
@@ -103,6 +107,8 @@ const handleNoteView = (e) => {
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
+  noteTitle.removeAttribute('readonly');
+  noteText.removeAttribute('readonly');
   renderActiveNote();
 };
 

@@ -21,9 +21,7 @@ module.exports = (app) => {
 
     app.delete('/api/notes/:id', (req, res) => {
 
-        const index = notes.indexOf(req.params.id);
-
-        notes.splice(index, 1);
+        notes.splice(req.params.id, 1);
 
         res.json(notes);
 

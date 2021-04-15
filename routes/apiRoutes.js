@@ -20,13 +20,6 @@ module.exports = (app) => {
     });
 
     app.delete('/api/notes/:id', (req, res) => {
-        // const noteToDel = req.params.id;
-
-        // for (let i = 0; i < notes.length; i++) {
-        //     if (notes[i].id === noteToDel) {
-        //         index = i;
-        //     }
-        // }
 
         const index = notes.indexOf(req.params.id);
 
